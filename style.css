@@ -1,114 +1,172 @@
 /* ======================================
    BASIC PAGE SETUP
 ====================================== */
-body {
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f8fb;
   color: #333;
+  line-height: 1.6;
 }
 
 /* ======================================
    HEADER SECTION
 ====================================== */
 header {
-  background: #007acc; /* Blue background */
-  color: white;        /* White text */
-  padding: 4rem 0;     /* Top & bottom spacing */
-  text-align: center;  /* Centered text */
+  background: linear-gradient(to right, #007acc, #005fa3);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 /* ======================================
-   CONTAINER - COMMON WRAPPER
+   BUTTON STYLE
+====================================== */
+.btn {
+  display: inline-block;
+  background: #ff6f61;
+  color: #fff;
+  padding: 0.7rem 1.4rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #e85b50;
+}
+
+/* ======================================
+   CONTAINER
 ====================================== */
 .container {
-  max-width: 1000px;   /* Max width for content */
-  margin: 0 auto;      /* Center the container */
-  padding: 0 2rem;     /* Left & right spacing */
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 /* ======================================
-   TYPOGRAPHY
+   SECTION HEADINGS
 ====================================== */
-h1 {
-  margin: 0;
-  font-size: 2.5rem;
+section {
+  padding: 4rem 0;
 }
 
 h2 {
-  color: #007acc;      /* Section headings in blue */
+  color: #007acc;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #ff6f61;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
 }
 
 /* ======================================
-   SECTIONS (About, Projects, Gallery, Contact)
+   ABOUT SECTION
 ====================================== */
-.about, .projects, .gallery, .contact {
-  padding: 3rem 0;     /* Vertical spacing between sections */
+#about img {
+  width: 180px;
+  border-radius: 50%;
+  margin: 1rem auto;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* ======================================
-   PROJECTS GRID
+   IMAGE SECTIONS
 ====================================== */
-.project-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;           /* Space between project cards */
-}
-
-.project {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* ======================================
-   GALLERY GRID WITH HOVER EFFECT
-====================================== */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-.gallery-grid img {
+section img {
   width: 100%;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 500px;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.gallery-grid img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+/* ======================================
+   SKILLS LIST
+====================================== */
+ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+ul li {
+  background: #fff;
+  margin: 0.5rem auto;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  max-width: 400px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+ul li:hover {
+  transform: scale(1.03);
 }
 
 /* ======================================
    CONTACT FORM
 ====================================== */
 form {
+  max-width: 600px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-}
-
-form label {
-  margin-top: 1rem;
+  gap: 1rem;
 }
 
 form input,
 form textarea {
-  padding: 0.5rem;
+  padding: 0.75rem 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #007acc;
+  outline: none;
 }
 
 form button {
-  margin-top: 1rem;
-  padding: 0.7rem;
+  padding: 0.8rem;
+  font-size: 1rem;
   background: #007acc;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 form button:hover {
@@ -116,46 +174,37 @@ form button:hover {
 }
 
 /* ======================================
-   FOOTER & SOCIAL LINKS
+   FOOTER SECTION
 ====================================== */
 footer {
   background: #007acc;
   color: white;
   text-align: center;
-  padding: 1rem 0;
+  padding: 2rem 1rem;
 }
 
 .social-links a {
   color: #fff;
-  margin: 0 0.5rem;
+  margin: 0 0.7rem;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .social-links a:hover {
+  color: #ff6f61;
   text-decoration: underline;
 }
 
 /* ======================================
-   OPTIONAL: BUTTON CLASS FOR 'Contact Me'
+   RESPONSIVE
 ====================================== */
-.btn {
-  display: inline-block;
-  background: #007acc;
-  color: #fff;
-  padding: 0.7rem 1.2rem;
-  border-radius: 4px;
-  text-decoration: none;
-}
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
 
-.btn:hover {
-  background: #005fa3;
-}
-
-/* ======================================
-   OPTIONAL: GLOBAL IMAGE RESPONSIVE
-====================================== */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+  .container {
+    padding: 1rem;
+  }
 }
